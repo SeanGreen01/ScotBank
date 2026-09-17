@@ -1,17 +1,19 @@
 # Scotbank
 
-A Java banking dashboard. Requires Java 17 or newer.
+Scotbank is a banking web app where users can view account balances, transactions, and spending summaries, while managers can review reports on transactions. It is built with Java, the Jooby web framework, Handlebars templates, and an H2 database, with Maven managing the build. It was completed in a group of 4 people as part of the course "Agile Software Engineering in Practice" run in collaboration with JPMorgan at the university of Strathclyde.
 
-## Run locally
+## running
 
-```sh
-./mvnw clean jooby:run
-```
+    ./mvnw.cmd clean jooby:run
 
-On Windows use `mvnw.cmd clean jooby:run`. Open http://localhost:8080.
+## building
+
+    ./mvnw.cmd clean package
+
+Open http://localhost:8080.
 
 Demo mode is enabled by default and makes no external API requests. It loads
-fictional accounts, businesses and transactions into an in-memory database.
+dummy accounts, businesses and transactions into an in-memory database.
 Data resets on restart. Enter one of these IDs on the login page:
 
 | Customer | Unique ID | Expected balance |
@@ -29,14 +31,6 @@ This is a prototype with simplified login, intended for local demonstration.
 SCOTBANK_DEMO=false ./mvnw clean jooby:run
 ```
 
-This selects the original API integration. Its authentication, accounts and
-business endpoints returned 404 when checked on 11 September 2026, so API mode
-requires updates before it will work.
-Set `SCOTBANK_API_CLIENT_SECRET` in the environment before using API mode.
+The original API used when creating this project is no longer active and will return 404, however, I have provided dummy data to show the demo.
 
-## Build and test
 
-```sh
-./mvnw test
-./mvnw clean package
-```

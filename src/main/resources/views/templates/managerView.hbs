@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        /* Styles for the navigation bar */
+        /* Style the navigation menu */
+        /* Style the navigation menu */
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            role: navigation; /* Added role for semantic meaning */
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation links */
+        .navbar a {
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            width: 25%;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+            outline: none; /* Remove default outline */
+        }
+
+        /* Add a background color on mouse-over */
+        .navbar a:hover {
+            background-color: #000;
+        }
+
+        /* Add focus styles */
+        .navbar a:focus {
+            background-color: #888;
+        }
+
+        /* Additional styles to make the page look better */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        } }
+
+        /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+        @media screen and (max-width: 500px) {
+          .navbar a {
+            float: none;
+            display:inline-block;
+            width: 100%;
+            text-align: center; /* If you want the text to be left-aligned on small screens */
+          }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar" role="navigation" aria-label="Main Navigation" >
+    <a href="/manager" tabindex="1">Accounts List</a>
+    <a href="/sanctionBusiness" tabindex="2">Sanctioned Business Report</a>
+    <a href="/" tabindex="0" id="logout-button">Logout</a>
+</div>
+
+<div class="container">
+    <h1>Manager Dashboard</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Current Balance</th>
+            <th>Round Up Enabled</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each accounts}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>£{{this.currentAmount}}</td>
+                <td>{{this.roundUpEnabled}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
